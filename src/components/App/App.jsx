@@ -17,11 +17,18 @@ export default function App (){
         localStorage.setItem("contacts", JSON.stringify(contacts))
     },[contacts])
 
+    // const addContact=(newContact)=>{
+    //     setContacts((prevContacts)=>{
+    //         return[...prevContacts,newContact]
+    //     })
+    // }
+
     const addContact=(newContact)=>{
         setContacts((prevContacts)=>{
-            return[...prevContacts,newContact]
+            return[...prevContacts,{...newContact, id: Date.now()}];
         })
     }
+    
 
     const deleteContact =(contactId)=>{
         setContacts((prevContacts)=>{
